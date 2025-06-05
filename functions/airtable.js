@@ -19,7 +19,7 @@ export async function onRequest({ request, env }) {
     try {
       const { prompt, imageUrl, user } = await request.json();
   
-      const airtableUrl = `https://api.airtable.com/v0/${env.VITE_APP_BASE_ID}/${env.VITE_APP_AIRTABLE_TABLE}`;
+      const airtableUrl = `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/${env.AIRTABLE_TABLE_NAME}`;
     
       console.log(JSON.stringify({
         fields: {
@@ -55,7 +55,7 @@ export async function onRequest({ request, env }) {
       const airtableRes = await fetch(airtableUrl, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${env.VITE_APP_AIRTABLE_TOKEN}`,
+          'Authorization': `Bearer ${env.AIRTABLE_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
