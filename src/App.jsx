@@ -77,7 +77,7 @@ function App() {
       >
  
         {isLoading ? 'Generating...' : 'Generate'}
- 9     </button>
+      </button>
 
       {result && (
         <div style={{ marginTop: '2rem' }}>
